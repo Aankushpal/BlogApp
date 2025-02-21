@@ -6,6 +6,7 @@ import LogoutBtn from "./Header/LogoutBtn";
 // import RTE from "./RTE";
 import Signup from "./Signup";
 import Login from "./Login";
+import Logo from "./Logo/Logo";
 import Button from "./Button";
 import PostForm from "./post-Form/PostForm";
 import PostCard from "./PostCard";
@@ -25,4 +26,5 @@ export {
     AuthLayout, 
     Input,
     Select,
+    Logo
 }

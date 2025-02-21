@@ -6,27 +6,25 @@ function AllPosts() {
     const [posts, setPosts] = useState([]);
 
     useEffect(() => {
-        appwriteService.getPosts().then((posts) => {
-            if (posts) {
-                setPosts(posts.documents);
-            }
-        }).catch((error) => console.error("Error fetching posts:", error));
+        appwriteService.getPosts()
+            .then((posts) => {
+                if (posts) {
+                    setPosts(posts.documents);
+                }
+            })
+            .catch((error) => console.error("Error fetching posts:", error));
     }, []);  
 
     return ( 
         <div className="py-8">
             <Container>
-                <div className="flex flex-wrap justify-around
-">
+                <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-5">
                     {posts.map((post) => (
-                        <div key={post.$id} className="p-3 m-3 w-1/3 border border-red-500">
-                        <PostCard {...post} />
-                        </div>
+                        <PostCard key={post.$id} {...post} />
                     ))}
                 </div>
             </Container>
-</div>
-
+        </div>
     );
 }
 
